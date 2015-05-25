@@ -1,10 +1,20 @@
-<h1>List of TODOs</h1>
-
-<ul id="todo-list">
-  {{#each todo in model}}
-    <li>
-      <input type="checkbox" class="toggle">
-      <label>{{todo.title}}</label><button class="destroy">X</button>
-    </li>
-  {{/each}}
-</ul>
+<div class="container">
+  <h1>List of TODOs</h1>
+  {{input
+    type="text"
+    id="new-todo"
+    placeholder="What needs to be done?"
+    value=newTitle
+    action="createTodo"}}
+  <ul id="todo-list">
+    {{#each todo in model}}
+      <li {{bind-attr class="todo.isCompleted:completed"}}>
+        {{input type="checkbox" checked=todo.isCompleted class="toggle"}}
+        <label>{{todo.title}}</label><button class="destroy">X</button>
+      </li>
+    {{/each}}
+  </ul>
+  <span id="todo-count">
+    <strong>{{remaining}}</strong> {{inflection}} left
+  </span>
+</div>

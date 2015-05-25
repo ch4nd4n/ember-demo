@@ -1,8 +1,3 @@
-Todos.Todo = DS.Model.extend({
-  title: DS.attr('string'),
-  isCompleted: DS.attr('boolean')
-});
-
 Todos.Todos = [
   {
     id: 1,
@@ -11,7 +6,7 @@ Todos.Todos = [
   },
   {
     id: 2,
-    title: '...',
+    title: 'And something more',
     isCompleted: false
   },
   {
